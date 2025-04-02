@@ -14,6 +14,7 @@ struct ContentView: View {
                 navLink(MergeStringsView(), "Merge Strings")
                 navLink(GCDView(), "Greatest Common Divisor")
                 navLink(KidsWithCandiesView(), "Kids With Candies")
+                navLink(DifferenceOfTwoArrays(), "Difference of Two Arrays")
             }
             .navigationTitle("LeetCode Crackers 🍪")
         }
