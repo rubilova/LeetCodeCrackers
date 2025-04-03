@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                navLink(InsertionSortView(), "Insertion Sort")
                 navLink(MergeStringsView(), "Merge Strings")
                 navLink(GCDView(), "Greatest Common Divisor")
                 navLink(KidsWithCandiesView(), "Kids With Candies")
