@@ -22,6 +22,7 @@ struct ContentView: View {
                 navLink(GCDView(), "Greatest Common Divisor")
                 Text("- Work with Arrays:")
                     .font(.title)
+                navLink(BinarySearchView(), "Binary Search")
                 navLink(KidsWithCandiesView(), "Kids With Candies")
                 navLink(DifferenceOfTwoArrays(), "Difference of Two Arrays")
                 navLink(MoveZeroesView(), "Move Zeroes")
