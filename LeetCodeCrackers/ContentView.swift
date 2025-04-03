@@ -26,6 +26,9 @@ struct ContentView: View {
                 navLink(KidsWithCandiesView(), "Kids With Candies")
                 navLink(DifferenceOfTwoArrays(), "Difference of Two Arrays")
                 navLink(MoveZeroesView(), "Move Zeroes")
+                Text("- Linked List:")
+                    .font(.title)
+                navLink(OddEvenLinkedListView(), "Odd Even Linked List")
             }
             .navigationTitle("LeetCode Crackers 🍪")
         }
