@@ -10,12 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 10) {
                 Text("- Sorting algorithms:")
                     .font(.title)
                 navLink(InsertionSortView(), "Insertion Sort")
                 navLink(MergeSortView(), "Merge Sort")
                 navLink(QuickSortView(), "Quick Sort")
+                Text("- Two Pointers")
+                    .font(.title)
+                navLink(RemoveOccurencesInPlace(), "Remove Occurences in Place")
                 Text("- Work with Strings:")
                     .font(.title)
                 navLink(MergeStringsView(), "Merge Strings")
