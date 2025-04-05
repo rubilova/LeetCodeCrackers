@@ -2,19 +2,22 @@ import UIKit
 
 var greeting = "Is given string a palindrome?"
 
-func isPalindrome(_ str: String) -> Bool {
-    var startIndex = str.index(str.startIndex, offsetBy: 0)
-    var endIndex = str.index(before: str.endIndex)
-    while startIndex <= endIndex {
-        
-        if str[startIndex] != str[endIndex] {
-            return false
+func isPalindrome(_ s: String) -> Bool {
+        let str = s.lowercased().filter { $0.isLetter || $0.isNumber }
+        guard str.count > 1 else { return true }
+        var leftIndex = str.startIndex
+        var rightIndex = str.index(before: str.endIndex)
+        while leftIndex <= rightIndex {
+            if str[leftIndex] != str[rightIndex] {
+                return false
+            }
+            leftIndex = str.index(after: leftIndex)
+            rightIndex = str.index(before: rightIndex)
         }
-        startIndex = str.index(after: startIndex)
-        endIndex = str.index(before: endIndex)
+        return true
     }
-    return true
-}
 
 let result1 = isPalindrome("raceacar")
 let result2 = isPalindrome("tacocat")
+let result3 = isPalindrome("")
+let result4 = isPalindrome(".a")
