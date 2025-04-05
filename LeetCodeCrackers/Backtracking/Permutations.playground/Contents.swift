@@ -33,32 +33,32 @@ func permute(_ nums: [Int]) -> [[Int]] {
     var used = Array(repeating: false, count: nums.count)
 
     func backtrack(level: Int = 0) {
-        print(String(repeating: "  ", count: level) + "→ Enter: path = \(path)")
+        print(String(repeating: "  ", count: level) + "\(level): → Enter: path = \(path)")
         
         if path.count == nums.count {
-            print(String(repeating: "  ", count: level) + "✅ Complete: \(path)")
+            print(String(repeating: "  ", count: level) + "\(level): ✅ Complete: \(path)")
             result.append(path)
             return
         }
 
         for i in 0..<nums.count {
             if used[i] {
-                print(String(repeating: "  ", count: level) + "⛔️ Skip: nums[\(i)] = \(nums[i]) already used")
+                print(String(repeating: "  ", count: level) + "L:\(level), i:\(i) : ⛔️ Skip: nums[\(i)] = \(nums[i]) already used")
                 continue
             }
 
-            print(String(repeating: "  ", count: level) + "🔹 Choose: nums[\(i)] = \(nums[i])")
+            print(String(repeating: "  ", count: level) + "L:\(level), i:\(i): 🔹 Choose: nums[\(i)] = \(nums[i])")
             path.append(nums[i])
             used[i] = true
 
             backtrack(level: level + 1)
 
-            print(String(repeating: "  ", count: level) + "↩️ Backtrack: Remove \(path.last!)")
+            print(String(repeating: "  ", count: level) + "L:\(level), i:\(i): ↩️ Backtrack: Remove \(path.last!)")
             path.removeLast()
             used[i] = false
         }
 
-        print(String(repeating: "  ", count: level) + "← Exit: path = \(path)")
+        print(String(repeating: "  ", count: level) + "\(level): ← Exit: path = \(path)")
     }
 
     backtrack()
