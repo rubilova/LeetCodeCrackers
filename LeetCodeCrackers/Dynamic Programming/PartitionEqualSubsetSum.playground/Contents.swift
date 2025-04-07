@@ -2,7 +2,7 @@ import UIKit
 
 var greeting = "Partition Equal Subset Sum"
 
-func canPartition(_ nums: [Int]) -> Bool {
+func canPartitionWithMemo(_ nums: [Int]) -> Bool {
     let total = nums.reduce(0, +)
     if total % 2 == 1 {
         return false
@@ -34,10 +34,33 @@ func canPartition(_ nums: [Int]) -> Bool {
         
         // Store result in memo
         memo[key] = include || exclude
+        
         return memo[key]!
     }
     // Start from index 0 and currentSum 0
     return dfs(0, 0)
+}
+
+func canPartition(_ nums: [Int]) -> Bool {
+    let total = nums.reduce(0, +)
+    
+    // If total is odd, it can't be equally divided
+    if total % 2 != 0 {
+        return false
+    }
+    
+    let target = total / 2
+    var dp = [Bool](repeating: false, count: target + 1)
+    dp[0] = true  // Base case: zero sum is always possible
+
+    for num in nums {
+        // Traverse backwards to avoid overwriting results we still need
+        for i in stride(from: target, through: num, by: -1) {
+            dp[i] = dp[i] || dp[i - num]
+        }
+    }
+
+    return dp[target]
 }
 
 let nums = [1, 5, 11, 5]
