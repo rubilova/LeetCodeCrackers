@@ -10,29 +10,38 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack(spacing: 10) {
-                Text("- Sorting algorithms:")
-                    .font(.title)
-                navLink(InsertionSortView(), "Insertion Sort")
-                navLink(MergeSortView(), "Merge Sort")
-                navLink(QuickSortView(), "Quick Sort")
-                Text("- Two Pointers")
-                    .font(.title)
-                navLink(RemoveOccurencesInPlace(), "Remove Occurences in Place")
-                Text("- Work with Strings:")
-                    .font(.title)
-                navLink(MergeStringsView(), "Merge Strings")
-                navLink(GCDView(), "Greatest Common Divisor")
-                Text("- Work with Arrays:")
-                    .font(.title)
-                navLink(BinarySearchView(), "Binary Search")
-                navLink(KidsWithCandiesView(), "Kids With Candies")
-                navLink(DifferenceOfTwoArrays(), "Difference of Two Arrays")
-                navLink(MoveZeroesView(), "Move Zeroes")
-                Text("- Linked List:")
-                    .font(.title)
-                navLink(OddEvenLinkedListView(), "Odd Even Linked List")
+            List {
+                Section("Sorting algorithms") {
+                    navLink(InsertionSortView(), "Insertion Sort")
+                    navLink(MergeSortView(), "Merge Sort")
+                    navLink(QuickSortView(), "Quick Sort")
+                }
+
+                Section("Two Pointers") {
+                    navLink(RemoveOccurencesInPlace(), "Remove Occurences in Place")
+                }
+
+                Section("Work with Strings") {
+                    navLink(MergeStringsView(), "Merge Strings")
+                    navLink(GCDView(), "Greatest Common Divisor")
+                }
+
+                Section("Work with Arrays") {
+                    navLink(BinarySearchView(), "Binary Search")
+                    navLink(KidsWithCandiesView(), "Kids With Candies")
+                    navLink(DifferenceOfTwoArrays(), "Difference of Two Arrays")
+                    navLink(MoveZeroesView(), "Move Zeroes")
+                }
+
+                Section("Linked List") {
+                    navLink(OddEvenLinkedListView(), "Odd Even Linked List")
+                }
+                
+                Section("Binary Tree") {
+                    navLink(BalanceBSTView(), "Balance a Binary Search Tree")
+                }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("LeetCode Crackers 🍪")
         }
     }
